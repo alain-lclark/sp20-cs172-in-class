@@ -6,6 +6,7 @@ public class Minesweeper {
         boolean revealed[][] = new boolean[size][size];
         int numMines=5;
         StdDraw.setScale(-0.5, minefield.length - .5);
+        StdDraw.enableDoubleBuffering();
         initMinefield(minefield,numMines);
         printMinefield(minefield);
         drawMinefield(minefield, revealed);
@@ -94,6 +95,7 @@ public class Minesweeper {
                 StdDraw.square(x, y, .5);
             }
         }
+        StdDraw.show();
     }
 
     private static void initMinefield(boolean[][] minefield, int numMines) {
