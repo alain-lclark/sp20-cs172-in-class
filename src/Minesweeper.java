@@ -2,8 +2,8 @@ public class Minesweeper {
     public static void main(String[] args) {
         StdOut.println("Welcome to MineSweeper");
         int size=10;
-        boolean minefield[][]=new boolean[size][size];
-        boolean revealed[][] = new boolean[size][size];
+        boolean[][] minefield =new boolean[size][size];
+        boolean[][] revealed = new boolean[size][size];
         int numMines=5;
         StdDraw.setScale(-0.5, minefield.length - .5);
         StdDraw.enableDoubleBuffering();
