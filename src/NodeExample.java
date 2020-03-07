@@ -1,15 +1,25 @@
 public class NodeExample {
 
     static public void main(String[] unused) {
-        Node n1 = new Node();
-        Node n2 = new Node();
-        Node n3 = new Node();
-        n1.item = 1;
-        n1.next = n2;
-        n2.item = 2;
-        n2.next = n3;
-        n3.item = 3;
-        n3.next = null;
+
+        // Read numbers from a file and create a list.
+        In f = new In("nums.txt");
+
+        Node head = null;
+
+        while (!f.isEmpty()) {
+            Node n = new Node();
+
+            n.item = f.readInt();
+            n.next = head;
+
+            head = n;
+        }
+
+        // Print some properties of the list.
+        StdOut.println("The length of the list is " + Node.length(head));
+        StdOut.println("Sum of the elements in the list is " + Node.sum(head));
+        StdOut.println("Largest element in the list is " + Node.max(head));
     }
 
 }
