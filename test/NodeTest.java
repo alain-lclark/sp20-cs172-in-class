@@ -45,8 +45,8 @@ class NodeTest {
         n2.next = n3;
         n3.item = 3;
         n3.next = null;
-        assertEquals(3, Node.sum(n1));
-        assertEquals(2, Node.sum(n2));
+        assertEquals(3, Node.max(n1));
+        assertEquals(3, Node.max(n2));
     }
 
     @org.junit.jupiter.api.Test
