@@ -76,4 +76,15 @@ public class Node {
         return false;
     }
 
+    private String toStringHelper() {
+        if (next == null) {
+            return Integer.toString(item);
+        }
+        return Integer.toString(item) + ", " + next.toStringHelper();
+    }
+
+    public String toString() {
+        return "[ " + toStringHelper() + " ]";
+    }
+
 }

@@ -17,6 +17,7 @@ public class NodeExample {
         }
 
         // Print some properties of the list.
+        StdOut.println(head);
         StdOut.println("The length of the list is " + Node.length(head));
         StdOut.println("Sum of the elements in the list is " + Node.sum(head));
         StdOut.println("Largest element in the list is " + Node.max(head));
