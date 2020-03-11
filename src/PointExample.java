@@ -14,6 +14,8 @@ public class PointExample {
         Point p3 = Point.add(p, p2);
         StdOut.println(p3.x);
         StdOut.println(p3.y);
+
+        StdOut.print(p);
     }
 
 }
