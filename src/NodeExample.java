@@ -5,22 +5,17 @@ public class NodeExample {
         // Read numbers from a file and create a list.
         In f = new In("nums.txt");
 
-        Node head = null;
+        Node head = new Node(f.readInt());
 
         while (!f.isEmpty()) {
-            Node n = new Node();
-
-            n.item = f.readInt();
-            n.next = head;
-
-            head = n;
+            head.add(f.readInt());
         }
 
         // Print some properties of the list.
-        StdOut.println(head);
-        StdOut.println("The length of the list is " + Node.length(head));
-        StdOut.println("Sum of the elements in the list is " + Node.sum(head));
-        StdOut.println("Largest element in the list is " + Node.max(head));
+        StdOut.println("The content of the list is " + head);
+        StdOut.println("The length of the list is " + head.length());
+        //StdOut.println("Sum of the elements in the list is " + Node.sum(head));
+        //StdOut.println("Largest element in the list is " + Node.max(head));
     }
 
 }

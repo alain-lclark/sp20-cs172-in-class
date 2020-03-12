@@ -5,72 +5,77 @@ import static org.junit.jupiter.api.Assertions.*;
 class NodeTest {
 
     @org.junit.jupiter.api.Test
-    void length() {
-        assertEquals(0, Node.length(null));
+    void getValue() {
+        Node n = new Node(4);
+        assertEquals(4, n.getValue());
+    }
 
-        Node n1 = new Node();
-        Node n2 = new Node();
-        Node n3 = new Node();
-        n1.item = 1;
-        n1.next = n2;
-        n2.item = 2;
-        n2.next = n3;
-        n3.item = 3;
-        n3.next = null;
-        assertEquals(3, Node.length(n1));
+    @org.junit.jupiter.api.Test
+    void length() {
+        Node list = new Node(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, list.length());
     }
 
     @org.junit.jupiter.api.Test
     void sum() {
-        Node n1 = new Node();
-        Node n2 = new Node();
-        Node n3 = new Node();
-        n1.item = 1;
-        n1.next = n2;
-        n2.item = 2;
-        n2.next = n3;
-        n3.item = 3;
-        n3.next = null;
-        assertEquals(6, Node.sum(n1));
+        Node list = new Node(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(6, list.sum());
     }
 
     @org.junit.jupiter.api.Test
     void max() {
-        Node n1 = new Node();
-        Node n2 = new Node();
-        Node n3 = new Node();
-        n1.item = 1;
-        n1.next = n2;
-        n2.item = 2;
-        n2.next = n3;
-        n3.item = 3;
-        n3.next = null;
-        assertEquals(3, Node.max(n1));
-        assertEquals(3, Node.max(n2));
+        Node list = new Node(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, list.max());
+        assertEquals(3, list.getNext().max());
     }
 
     @org.junit.jupiter.api.Test
     void equals() {
-        Node n1 = new Node();
-        Node n2 = new Node();
-        Node n3 = new Node();
-        n1.item = 1;
-        n1.next = n2;
-        n2.item = 2;
-        n2.next = n3;
-        n3.item = 3;
-        n3.next = null;
-        Node m1 = new Node();
-        Node m2 = new Node();
-        Node m3 = new Node();
-        m1.item = 1;
-        m1.next = n2;
-        m2.item = 2;
-        m2.next = n3;
-        m3.item = 3;
-        m3.next = null;
-        assertTrue(Node.equals(n1, m1));
-        assertFalse(Node.equals(n2, m1));
+        Node list1 = new Node(1);
+        list1.add(2);
+        list1.add(3);
+        Node list2 = new Node(1);
+        list2.add(2);
+        list2.add(3);
+        assertTrue(list1.equals(list2));
+        assertFalse(list1.getNext().equals(list2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void add() {
+        Node list1 = new Node(1);
+        list1.add(2);
+        list1.add(3);
+        Node list2 = new Node(1);
+        list2.add(2);
+        list2.add(3);
+
+        list1.add(list2);
+
+        Node good = new Node(2);
+        good.add(4);
+        good.add(6);
+        assertTrue(good.equals(list1));
+    }
+
+    @org.junit.jupiter.api.Test
+    void scale() {
+        Node list1 = new Node(1);
+        list1.add(2);
+        list1.add(3);
+
+        list1.scale(3);
+
+        Node good = new Node(3);
+        good.add(6);
+        good.add(9);
+        assertTrue(good.equals(list1));
     }
 
 }
