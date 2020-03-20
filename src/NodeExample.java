@@ -1,21 +1,42 @@
 public class NodeExample {
 
-    static public void main(String[] unused) {
+    public static void main(String[] unused) {
 
-        // Read numbers from a file and create a list.
-        In f = new In("nums.txt");
+        In file = new In("nums.txt");
 
-        Node head = new Node(f.readInt());
+        Node head = null;
 
-        while (!f.isEmpty()) {
-            head.add(f.readInt());
+        while (!file.isEmpty()) {
+            Node n = new Node();
+            n.value = file.readInt();
+            n.next = head;
+            head = n;
         }
 
-        // Print some properties of the list.
-        StdOut.println("The content of the list is " + head);
-        StdOut.println("The length of the list is " + head.length());
-        //StdOut.println("Sum of the elements in the list is " + Node.sum(head));
-        //StdOut.println("Largest element in the list is " + Node.max(head));
+        StdOut.println("Size of list is " + size(head));
+        print(head);
+    }
+
+    public static int size(Node list) {
+        if (list == null) { return 0; }
+        return 1 + size(list.next);
+    }
+
+    public static boolean equals(Node list1, Node list2) {
+        if (size(list1) != size(list2)) { return false; }
+        if (list1 == null) { return true; }
+        if (list1.value != list2.value) { return false; }
+        return equals(list1.next, list2.next);
+    }
+
+    public static void print(Node list) {
+        StdOut.print("(");
+        while (list != null) {
+            StdOut.print(list.value);
+            if (list.next != null) { StdOut.print(", "); }
+            list = list.next;
+        }
+        StdOut.println(")");
     }
 
 }
