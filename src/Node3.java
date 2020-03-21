@@ -1,3 +1,4 @@
+/** Version with constructors and add() method. */
 public class Node3 {
 
     private int value;

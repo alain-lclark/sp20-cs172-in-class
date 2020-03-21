@@ -1,3 +1,4 @@
+/** Animate version */
 public class Node2 {
 
     private int value;
