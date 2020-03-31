@@ -1,10 +1,10 @@
-public class List {
+public class List<E> {
 
     private class Node {
-        int value;
+        E value;
         Node next;
 
-        public Node(int value) {
+        public Node(E value) {
             this.value = value;
             this.next = null;
         }
@@ -20,7 +20,7 @@ public class List {
         last = null;
     }
 
-    public List add(int value) {
+    public List add(E value) {
         Node n = new Node(value);
         if (last != null) {
             // Non-empty list case
@@ -38,8 +38,8 @@ public class List {
         return this;
     }
 
-    public int get(int index) {
-        if (index >= size || index < 0) { return -1; }
+    public E get(int index) {
+        //if (index >= size || index < 0) { return -1; }
         Node n = first;
         for (int i = 0; i < index; ++i) {
             n = n.next;
@@ -86,7 +86,7 @@ public class List {
 
     public static void main(String[] unused) {
         In file = new In("nums.txt");
-        List list = new List();
+        List<Integer> list = new List();
         while (!file.isEmpty()) {
             list.add(file.readInt());
         }
