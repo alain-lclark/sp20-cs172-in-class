@@ -39,7 +39,7 @@ public class List<E> {
     }
 
     public E get(int index) {
-        //if (index >= size || index < 0) { return -1; }
+        if (index >= size || index < 0) { return null; }
         Node n = first;
         for (int i = 0; i < index; ++i) {
             n = n.next;
