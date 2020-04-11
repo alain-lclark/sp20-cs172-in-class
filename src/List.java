@@ -1,4 +1,4 @@
-public class List<E> {
+public class List<E> implements L<E> {
 
     private class Node {
         E value;
