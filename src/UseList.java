@@ -9,8 +9,8 @@ public class UseList {
 
     static int sumList(L<Integer> list) {
         int sum = 0;
-        for (int i = 0; i < list.size(); ++i) {
-            sum += list.get(i);
+        for (int val : list) {
+            sum += val;
         }
         return sum;
     }

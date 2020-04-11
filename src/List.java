@@ -84,6 +84,23 @@ public class List<E> implements L<E> {
         return true;
     }
 
+    public java.util.Iterator<E> iterator() {
+        return new ListIterator();
+    }
+
+    private class ListIterator implements java.util.Iterator<E> {
+
+        Node current = first;
+
+        public boolean hasNext() { return current != null; }
+
+        public E next() {
+            E e = current.value;
+            current = current.next;
+            return e;
+        }
+    }
+
     public static void main(String[] unused) {
         In file = new In("nums.txt");
         List<Integer> list = new List();
